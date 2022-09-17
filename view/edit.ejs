@@ -1,0 +1,31 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="container">
+    <u><h1 class="text-center ">Edit Your Informaition</h1></u>
+        <div class="registration-form">
+            <form method="post" action="/updateDocById/<%= data._id %>">
+                <div class="form-icon">
+                    <span><i class="icon icon-user"></i></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="username" name="username" placeholder="Username" value="<%=data.username %>">
+                </div>
+               
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="email" name="email" placeholder="Email"value="<%=data.email %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="phone-number" name="phone" placeholder="Phone Number" value="<%=data.phone %>">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control item" id="birth-date" name="birth" placeholder="Birth Date" value="<%=data.birth %>">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block create-account">Update</button>
+                   
+                </div>
+            </form>
+        </div>
+    </div>
+    
+<%- include('./partials/footer.ejs') %>

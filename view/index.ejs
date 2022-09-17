@@ -1,0 +1,73 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="container">
+<u><h1 class="text-center ">Enter Your Informaition</h1></u>
+    <div class="registration-form">
+        <form method="post">
+            <div class="form-icon">
+                <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" id="username" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" id="phone-number" name="phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control item" name="birth" id="birth-date" placeholder="Birth Date">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block create-account">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Tabel Start Here  -->
+<table class="table table-striped">
+    <thead>
+
+
+  
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone-number</th>
+        <th scope="col">Birth-date</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+   
+    </thead>
+    <tbody>
+        <% var i=1 %>
+        <% data.forEach((item)=>{ %>
+      <tr>
+        <th scope="row"><%= i++ %></th>
+        <td><%= item.username %></td>
+        <td><%= item.email %></td>
+        <td><%= item.phone %></td>
+        <td><%= item.birth %></td>
+        <td>
+            <form action="/edit/<%= item._id %>" method="get">
+                <button class="btn" type="submit"><i class="fa-solid fa-user-pen text-secondary"></i></button>
+            </form>
+        </td>
+        <td>
+            <form action="/DeleteDocById/<%= item._id %>" method="post">
+                <button class="btn" type="submit"><i class="fa-solid fa-trash text-danger"></i></button>
+            </form>
+        </td>
+
+      </tr>
+      <%   })%>
+    </tbody>
+  </table>
+<%- include('./partials/footer.ejs') %>
